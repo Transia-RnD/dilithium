@@ -137,3 +137,9 @@ clean:
 	rm -f nistkat/PQCgenKAT_sign2
 	rm -f nistkat/PQCgenKAT_sign3
 	rm -f nistkat/PQCgenKAT_sign5
+
+libdilithium2_ref.a: $(SOURCES:.c=.o) symmetric-shake.o fips202.o
+	$(AR) rcs $@ $^
+
+libfips202_ref.a: fips202.o
+	$(AR) rcs $@ $^
